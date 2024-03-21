@@ -1,0 +1,138 @@
+/* Agrega estos estilos a tu archivo navbar.css */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: radial-gradient(#ffcc00,#9c8421) ; /* Cambia el color de fondo según tu preferencia */
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Agrega una sombra */
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.nav-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 3px 0;
+}
+
+.nav-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  order: 1; /* Mueve el contenido del .nav-top al principio */
+}
+
+.nav-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  order: 3; /* Mueve los enlaces al final */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  color: #333;
+  text-decoration: none;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"] {
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  margin-right: 1rem;
+}
+
+.search-container button[type="submit"] {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 120px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Media Query para hacer el navbar responsive */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+  }
+
+  .nav-top {
+    order: 1; /* Mantiene el .nav-top al principio en modo responsive */
+  }
+
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    order: 2; /* Mueve el menú de hamburguesa al medio en modo responsive */
+  }
+
+  .nav-content {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+    order: 3; /* Mantiene los enlaces al final en modo responsive */
+  }
+
+  .search-container {
+    order: 1; /* Mueve la barra de búsqueda al principio */
+  }
+
+  /* Muestra los enlaces del menú y el botón de música cuando se hace clic en el icono de hamburguesa */
+  .nav-toggle.active ~ .nav-content {
+    display: flex;
+  }
+
+  .nav-toggle.active ~ .nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+/* Agrega esta clase en tu archivo navbar.css */
+.nav-down {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Asegura que el navbar esté encima de otros elementos */
+}
